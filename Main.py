@@ -39,7 +39,7 @@ def stop():  # Остановка сервера.
 
 
 def free():  # Показывает в браузере состояние памяти.
-    result = "Свободно ОЗУ: " + str(gc.mem_free()) + " Выделено ОЗУ: " + str(gc.mem_alloc())
+    result = "Свободно ОЗУ:" + str(gc.mem_free()) + " Выделено ОЗУ:" + str(gc.mem_alloc())
     return result
 
 
