@@ -4,7 +4,7 @@ from machine import Pin
 import network
 
 # Конфигурация
-SSID = "YOUR_WIFI"
+SSID = "Tumasov-MikroTik-2.4GHz" # Tumasov-MikroTik-2.4GHz
 SSID_PASSWORD = "YOUR_WIFI_PASSWORD"
 SERVER_PORT = 80
 
@@ -25,12 +25,12 @@ relay.value(0)  # Переводим пин в состояние 0
 # Фнкции веб-сервера
 def on():  # Включаем реле
     relay.value(1)
-    return 'Лампа включена'
+    return 'Реле включено'
 
 
 def off():  # Выключаем реле
     relay.value(0)
-    return 'Лампа отключена'
+    return 'Реле отключено'
 
 
 def stop():  # Остановка сервера.
@@ -39,18 +39,18 @@ def stop():  # Остановка сервера.
 
 
 def free():  # Показывает в браузере состояние памяти.
-    result = "Свободно ОЗУ:" + str(gc.mem_free()) + " Выделено ОЗУ:" + str(gc.mem_alloc())
+    result = "Свободно ОЗУ: " + str(gc.mem_free()) + " Выделено ОЗУ: " + str(gc.mem_alloc())
     return result
 
 
 def switch():  # Просто переключает состояние реле
     relay.value(not relay.value())
-    return 'STATUS=' + str(relay.value())
+    return 'Новое состояние реле: ' + str(relay.value())
 
 
 # Настройка веб-сервера
 server = Server(SERVER_PORT)  # Создаём объект сервера
-server.RouteAdd('/on', on)
+server.RouteAdd('/on', on) # http://[esp8266]/stop
 server.RouteAdd('/off', off)
 server.RouteAdd('/stop', stop)
 server.RouteAdd('/switch', switch)
