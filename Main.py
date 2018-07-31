@@ -4,7 +4,7 @@ from machine import Pin
 import network
 
 # Конфигурация
-SSID = "YOUR_WIFI"  # Tumasov-MikroTik-2.4GHz
+SSID = "YOUR_WIFI"
 SSID_PASSWORD = "YOUR_WIFI_PASSWORD"
 SERVER_PORT = 80
 
